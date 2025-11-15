@@ -1,4 +1,4 @@
-##CONVERSOR-INFO Mini proyecto grupo 15
+#CONVERSOR-INFO - Mini proyecto grupo 15 - 2da Etapa Desarrollo web INFORMATORIO
 
 ![Conversor](Recursos/ConversorF.png "Conversor")
 
@@ -15,6 +15,7 @@ Como parte de nuestro aprendizaje en esta 2da etapa desarrollo web, desarrollare
 - **Potenciar** nuestra creatividad y comunicación grupal
 
 **Elección del Mini proyecto:** Seleccionamos el menú desplegable como punto de partida para crear una interfaz intuitiva y escalable.
+
 ![Menudesplegable](Recursos/g1.png "Menudesplegable")
 
 ---
