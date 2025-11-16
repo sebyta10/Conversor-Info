@@ -150,6 +150,67 @@ def convertir_valor():
                 texto_resultados = '\n'.join(resultados)
 
             area_resultados.config(text=texto_resultados)
+                  if magnitud_actual == 'Fuerza':
+
+            if sistema_seleccionado is None:
+                area_resultados.config(text='Selecciona un sistema primero')
+                return
+
+            if sistema_seleccionado == "SI":
+                resultado_dyn = N_a_dyn(valor)
+                resultado_lbf = N_a_lbf(valor)
+                resultado_kp = N_a_kp(valor)
+
+                resultados = [
+                    f'SI:{valor} N',
+                    f'CGS:{resultado_dyn:.3f} dyn',
+                    f'US:{resultado_lbf:.3f} lbf',
+                    f'Téc:{resultado_kp:.3f} kp'
+                ]
+                texto_resultados = '\n'.join(resultados)
+
+            elif sistema_seleccionado == "CGS":
+                resultado_N = dyn_a_N(valor)
+                resultado_lbf = dyn_a_lbf(valor)
+                resultado_kp = dyn_a_kp(valor)
+
+                resultados = [
+                    f'SI:{resultado_N:.3f} N',
+                    f'CGS:{valor} dyn',
+                    f'US:{resultado_lbf:.3f} lbf',
+                    f'Téc:{resultado_kp:.3f} kp'
+                ]
+                texto_resultados = '\n'.join(resultados)
+
+            elif sistema_seleccionado == "US":
+                resultado_N = lbf_a_N(valor)
+                resultado_dyn = lbf_a_dyn(valor)
+                resultado_kp = lbf_a_kp(valor)
+
+                resultados = [
+                    f'SI:{resultado_N:.3f} N',
+                    f'CGS:{resultado_dyn:.3f} dyn',
+                    f'US:{valor} lbf',
+                    f'Téc:{resultado_kp:.3f} kp'
+                ]
+                texto_resultados = '\n'.join(resultados)
+
+            elif sistema_seleccionado == "Téc":
+                resultado_N = kp_a_N(valor)
+                resultado_dyn = kp_a_dyn(valor)
+                resultado_lbf = kp_a_lbf(valor)
+
+                resultados = [
+                    f'SI:{resultado_N:.3f} N',
+                    f'CGS:{resultado_dyn:.3f} dyn',
+                    f'US:{resultado_lbf:.3f} lbf',
+                    f'Téc:{valor} kp'
+                ]
+                texto_resultados = '\n'.join(resultados)
+
+            area_resultados.config(text=texto_resultados)
+            return
+
             
     except ValueError:
         area_resultados.config(text="Error. Ingrese número válido")
