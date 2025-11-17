@@ -1,4 +1,4 @@
-# CONVERSOR-INFO - Mini proyecto grupo 15 - 2da Etapa Desarrollo web INFORMATORIO
+# CONVERSOR-INFO - Mini proyecto grupo 15 - Etapa 2: Desarrollo Web - INFORMATORIO
 
 ![Conversor](Recursos/ConversorF.png "Conversor")
 
