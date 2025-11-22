@@ -3,9 +3,11 @@ import tkinter as tk
 #importamos la conversiones matemáticas del otro archivo.
 #Para la magnitud masa:
 from ConversionesMatematicas import(kg_a_g, kg_a_lb, kg_a_utm, g_a_kg, g_a_lb, g_a_utm, lb_a_kg,
-                                    lb_a_g, lb_a_utm, utm_a_kg, utm_a_g, utm_a_lb)
-
+                                    lb_a_g, lb_a_utm, utm_a_kg, utm_a_g, utm_a_lb,
 #Para la magnitud longitud:
+                                    m_a_cm, m_a_ft, m_a_in, cm_a_m, cm_a_ft, cm_a_in, 
+                                    ft_a_m, ft_a_cm, ft_a_in, in_a_m, in_a_cm, in_a_ft)
+
 #Para la magnitud fuerza:
 #Para la magnitud temperatura:
 #Para la magnitud energia:
@@ -57,7 +59,7 @@ def seleccionar_magnitud(magnitud): #Guarda que magnitud se eligio y muestra la 
         texto_unidades.config(text='kg              g               lb              utm')
 
     elif magnitud == 'Longitud':
-        texto_unidades.config(text='m               cm              ft              m')
+        texto_unidades.config(text='m               cm              ft              in')
 
     elif magnitud == 'Fuerza':
         texto_unidades.config(text='N               dyn             lbf             kp')
@@ -78,24 +80,22 @@ def seleccionar_sistema(sistema):      #Guarda que boton de sistema fue seleccio
 
 #Funciones que conectan los botones con el archivo de conversionesmatematicas.py
 #Realiza el calculo y muestra los resultados. Utilizamos condicionales.
-#Para la magnitud masa seria:
 def convertir_valor():
-
     try:
-        valor = float(display.get()) #Lee el valor ingresado en el display
+        valor = float(display.get())  # Lee el valor ingresado en el display
 
-        if magnitud_actual =='Masa': #Verifica que magnitud se selecciono
+        if magnitud_actual == 'Masa':  # Verifica que magnitud se seleccionó
 
             if valor < 0:
                 area_resultados.config(text='Error la masa no puede ser negativa')
                 return
             
-            if sistema_seleccionado is None: #Verificaca que se seleccionó un sistema.
+            if sistema_seleccionado is None:  # Verifica que se seleccionó un sistema.
                 area_resultados.config(text='Selecciona un sistema primero')
                 return
             
-            if sistema_seleccionado == "SI": #Hace las conversiones segun el sistema seleccionado
-                resultado_g = kg_a_g(valor)  #Convierte de Kilogramos a las demas unidades
+            if sistema_seleccionado == "SI":  # Hace las conversiones según el sistema seleccionado
+                resultado_g = kg_a_g(valor)   # Convierte de Kilogramos a las demás unidades
                 resultado_lb = kg_a_lb(valor)
                 resultado_utm = kg_a_utm(valor)
 
@@ -108,7 +108,7 @@ def convertir_valor():
                 texto_resultados = '\n'.join(resultados)
 
             elif sistema_seleccionado == "CGS":
-                resultado_kg = g_a_kg(valor)  #Convierte de gramos a las demas unidades
+                resultado_kg = g_a_kg(valor)  # Convierte de gramos a las demás unidades
                 resultado_lb = g_a_lb(valor)
                 resultado_utm = g_a_utm(valor)
 
@@ -117,12 +117,11 @@ def convertir_valor():
                     f'CGS:{valor} g',
                     f'US:{resultado_lb:.3f} lb',
                     f'Téc: {resultado_utm:.3f} utm'
-
                 ]
                 texto_resultados = '\n'.join(resultados)
 
             elif sistema_seleccionado == "US":
-                resultado_kg = lb_a_kg(valor)  #Convierte de libras a las demas unidades
+                resultado_kg = lb_a_kg(valor)  # Convierte de libras a las demás unidades
                 resultado_g = lb_a_g(valor)
                 resultado_utm = lb_a_utm(valor)
 
@@ -131,12 +130,11 @@ def convertir_valor():
                     f'CGS:{resultado_g:.3f} g',
                     f'US:{valor} lb',
                     f'Téc: {resultado_utm:.3f} utm'
-
                 ]
                 texto_resultados = '\n'.join(resultados)
             
             elif sistema_seleccionado == "Téc":
-                resultado_kg = utm_a_kg(valor)  #Convierte de utm a las demas unidades
+                resultado_kg = utm_a_kg(valor)  # Convierte de utm a las demás unidades
                 resultado_g = utm_a_g(valor)
                 resultado_lb = utm_a_lb(valor)
 
@@ -145,12 +143,72 @@ def convertir_valor():
                     f'CGS:{resultado_g:.3f} g',
                     f'US:{resultado_lb:.3f} lb',
                     f'Téc: {valor} utm'
-
                 ]
                 texto_resultados = '\n'.join(resultados)
 
             area_resultados.config(text=texto_resultados)
-                  if magnitud_actual == 'Fuerza':
+
+        elif magnitud_actual == "Longitud":
+
+            if sistema_seleccionado is None:
+                area_resultados.config(text='Selecciona un sistema primero')
+                return
+
+            if sistema_seleccionado == "SI":
+                resultado_cm = m_a_cm(valor)
+                resultado_ft = m_a_ft(valor)
+                resultado_in = m_a_in(valor)
+
+                resultados = [
+                    f'SI:{valor} m',
+                    f'CGS:{resultado_cm:.2f} cm',
+                    f'US:{resultado_ft:.2f} ft',
+                    f'Téc: {resultado_in:.2f} in'
+                ]
+                texto_resultados = "\n".join(resultados)
+
+            elif sistema_seleccionado == "CGS":
+                resultado_m = cm_a_m(valor)
+                resultado_ft = cm_a_ft(valor)
+                resultado_in = cm_a_in(valor)
+
+                resultados = [
+                    f'SI:{resultado_m:.4f} m',
+                    f'CGS:{valor} cm',
+                    f'US:{resultado_ft:.4f} ft',
+                    f'Téc: {resultado_in:.2f} in'
+                ]
+                texto_resultados = '\n'.join(resultados)
+
+            elif sistema_seleccionado == "US":
+                resultado_m = ft_a_m(valor)
+                resultado_cm = ft_a_cm(valor)
+                resultado_in = ft_a_in(valor)
+
+                resultados = [
+                    f'SI:{resultado_m:.4f} m',
+                    f'CGS:{resultado_cm:.2f} cm',
+                    f'US:{valor} ft',
+                    f'Téc: {resultado_in:.2f} in'
+                ]
+                texto_resultados = '\n'.join(resultados)
+            
+            elif sistema_seleccionado == "Téc":
+                resultado_m = in_a_m(valor)
+                resultado_cm = in_a_cm(valor)
+                resultado_ft = in_a_ft(valor)
+
+                resultados = [
+                    f'SI:{resultado_m:.4f} m',
+                    f'CGS:{resultado_cm:.2f} cm',
+                    f'US:{resultado_ft:.4f} ft',
+                    f'Téc: {valor} in'
+                ]
+                texto_resultados = '\n'.join(resultados)
+
+            area_resultados.config(text=texto_resultados)
+
+        elif magnitud_actual == 'Fuerza':
 
             if sistema_seleccionado is None:
                 area_resultados.config(text='Selecciona un sistema primero')
@@ -209,11 +267,10 @@ def convertir_valor():
                 texto_resultados = '\n'.join(resultados)
 
             area_resultados.config(text=texto_resultados)
-            return
 
-            
     except ValueError:
         area_resultados.config(text="Error. Ingrese número válido")
+
         
 def volver_a_principal():
     global sistema_seleccionado
@@ -277,9 +334,10 @@ boton_convertir = tk.Button(Contenedor_principal, text='CONVERTIR',      #Boton 
                             font=('Arial', 12, 'bold'),
                             activebackground='#FFAA33',
                             activeforeground='#000000',
-                            width=15)
+                            width=15,
+                            command=convertir_valor)
 boton_convertir.pack(pady=10)
-boton_convertir.config(command=convertir_valor) #Conecta el boton convertir con las funciones que hacen los calculos.
+
 
 
 area_resultados = tk.Label(Contenedor_principal, bg='#001100', #Area de resultados
