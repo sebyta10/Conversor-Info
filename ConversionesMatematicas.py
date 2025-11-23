@@ -1,4 +1,4 @@
-#COMVERSIONES MATEMÁTICAS
+#CONVERSIONES MATEMÁTICAS
 #PARA LA MASA
 #Para convertir del SI(kg) a los demas sistemas:
 def kg_a_g(valor):
@@ -125,9 +125,109 @@ def kp_a_lbf(valor):
     return valor / 0.453592  # convierte de kp a lbf
 
 
+
+#PARA LA FUERZA
+
+# Conversión desde el SI (Newton) a los demás sistemas:
+def N_a_dyn(valor):
+    return valor * 100000  # convierte de Newton a dina
+
+def N_a_lbf(valor):
+    return valor / 4.44822  # convierte de Newton a libra-fuerza
+
+def N_a_kp(valor):
+    return valor / 9.80665  # convierte de Newton a kilopond
+
+# Conversión desde CGS (dina):
+def dyn_a_N(valor):
+    return valor / 100000  # convierte de dina a Newton
+
+def dyn_a_lbf(valor):
+    return valor / 444822  # convierte de dina a lbf
+
+def dyn_a_kp(valor):
+    return valor / 980665  # convierte de dina a kp
+
+# Conversión desde US (lbf):
+def lbf_a_N(valor):
+    return valor * 4.44822  # convierte de lbf a Newton
+
+def lbf_a_dyn(valor):
+    return valor * 444822  # convierte de lbf a dina
+
+def lbf_a_kp(valor):
+    return valor * 0.453592  # convierte de lbf a kilopond
+
+# Conversión desde Técnico (kp):
+def kp_a_N(valor):
+    return valor * 9.80665  # convierte de kp a Newton
+
+def kp_a_dyn(valor):
+    return valor * 980665  # convierte de kp a dina
+
+def kp_a_lbf(valor):
+    return valor / 0.453592  # convierte de kp a lbf
+
+
+
 #PARA LA TEMPERATURA
+def kel_a_cel(valor):  # kelvin (K) a celsius (°C)
+    return valor - 273.15  
+
+def kel_a_fah(valor):  # kelvin (K) a Fahrenheit (°F)
+    return (valor - 273.15) * 1.8 + 32
+
+def cel_a_kel(valor):  # Celsius (°C) a Kelvin (K)
+    return valor + 273.15
+
+def cel_a_fah(valor):  # Celsius (°C) a Fahrenheit (°F)
+    return valor * 1.8 + 32
+
+def fah_a_cel(valor):  # Fahrenheit (°F) a Celsius (°C)
+    return  (valor - 32) / 1.8
+
+def fah_a_kel(valor):  # Fahrenheit (°F) a Kelvin (K)
+    return  (valor - 32) / 1.8 + 273.15
+
+
+
 #PARA LA ENERGIA
 
+def jul_a_erg(valor):  # Julio (J) a Ergio (erg)
+    return valor * 10000000
+
+def jul_a_lbf(valor):
+    return valor * 0.737562 # Julio (J) a Pie-libra (ft·lbf)
+
+def jul_a_kpm(valor):   # Julio (J) a Kilopondímetro (kpm)
+    return valor / 9.80665
 
 
-    
+def erg_a_jul(valor):  #Ergio (erg) a Julio (J)
+    return valor / 10000000
+
+def erg_a_lbf(valor):   #Ergio (erg) Pie-libra (ft·lbf)
+    return valor / 13558179
+
+def erg_a_kpm(valor):  #Ergio (erg) a Kilopondímetro (kpm)
+    return valor / 98066500
+
+
+def lbf_a_jul(valor):   #Pie-libra (ft·lbf) a Julio (J)
+    return valor * 1.35582
+
+def lbf_a_erg(valor):    #Pie-libra (ft·lbf) a Ergio (erg)
+    return valor * 13558179
+
+def lbf_a_kpm(valor):     #Pie-libra (ft·lbf) a Kilopondímetro (kpm)
+    return valor * 0.138255
+
+
+def kpm_a_jul(valor):    #Kilopondímetro (kpm) a Julio (J)
+    return valor * 9.80665
+
+def kpm_a_erg(valor):   #Kilopondímetro (kpm) a Ergio (erg)
+    return valor * 98066500 
+
+def kpm_a_lbf(valor):  #Kilopondímetro (kpm) a Pie-libra (ft·lbf)
+    return valor * 7.23301 
