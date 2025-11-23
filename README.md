@@ -16,7 +16,7 @@ Como parte de nuestro aprendizaje en esta 2da etapa desarrollo web, desarrollare
 
 **Elección del Mini proyecto:** Seleccionamos el menú desplegable como punto de partida para crear una interfaz intuitiva y escalable.
 
-![Menudesplegable](Recursos/g1.png "Menudesplegable")
+![Menudesplegable](Recursos/menudesple.png "Menudesplegable")
 
 ---
 
