@@ -82,49 +82,6 @@ def in_a_cm(valor):  # ← AQUÍ DEBE LLAMARSE EXACTAMENTE in_a_cm
 
 def in_a_ft(valor):  # ← AQUÍ DEBE LLAMARSE EXACTAMENTE in_a_ft
     return valor / 12  #convierte de pulgadas a pies
-#PARA LA FUERZA
-
-# Conversión desde el SI (Newton) a los demás sistemas:
-def N_a_dyn(valor):
-    return valor * 100000  # convierte de Newton a dina
-
-def N_a_lbf(valor):
-    return valor / 4.44822  # convierte de Newton a libra-fuerza
-
-def N_a_kp(valor):
-    return valor / 9.80665  # convierte de Newton a kilopond
-
-# Conversión desde CGS (dina):
-def dyn_a_N(valor):
-    return valor / 100000  # convierte de dina a Newton
-
-def dyn_a_lbf(valor):
-    return valor / 444822  # convierte de dina a lbf
-
-def dyn_a_kp(valor):
-    return valor / 980665  # convierte de dina a kp
-
-# Conversión desde US (lbf):
-def lbf_a_N(valor):
-    return valor * 4.44822  # convierte de lbf a Newton
-
-def lbf_a_dyn(valor):
-    return valor * 444822  # convierte de lbf a dina
-
-def lbf_a_kp(valor):
-    return valor * 0.453592  # convierte de lbf a kilopond
-
-# Conversión desde Técnico (kp):
-def kp_a_N(valor):
-    return valor * 9.80665  # convierte de kp a Newton
-
-def kp_a_dyn(valor):
-    return valor * 980665  # convierte de kp a dina
-
-def kp_a_lbf(valor):
-    return valor / 0.453592  # convierte de kp a lbf
-
-
 
 #PARA LA FUERZA
 
